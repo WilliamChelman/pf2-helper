@@ -1,0 +1,22 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: light --default;
+  /* themes: light --default, dark --prefersdark; */
+}
+
+@theme {
+  --text-xxxxxs: 0.25rem;
+  --text-xxxxs: 0.375rem;
+  --text-xxxs: 0.5rem;
+  --text-xxs: 0.625rem;
+  --font-pf: "Pathfinder Icons";
+  --font-cinzel: "Cinzel", serif;
+  --font-merriweather: "Merriweather", serif;
+  --color-gold: #ffd700;
+}
+
+/* @utility page-a4 {
+  width: 21cm;
+  min-height: 29.7cm;
+  background: white;
+} */
