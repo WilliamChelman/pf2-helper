@@ -1,0 +1,160 @@
+# Angular v20 Development Guidelines
+
+## Project Structure
+
+- Use standalone components by default
+- Organize features into modules only when necessary for lazy loading
+- Follow the feature-first architecture pattern
+- Keep components small and focused (max 300 lines)
+- Use barrel files (index.ts) for clean exports
+
+## Component Guidelines
+
+- Use the new control flow syntax (@if, @for, @switch) instead of *ngIf, *ngFor
+- Implement signals for state management
+- Use required inputs with the new syntax: @Input({ required: true })
+- Prefer self-closing tags for components without content
+- Use deferrable views for better performance
+
+## Template Syntax
+
+```typescript
+// ✅ Good
+@if (condition) {
+  <div>Content</div>
+} @else {
+  <div>Fallback</div>
+}
+
+@for (item of items; track item.id) {
+  <div>{{ item.name }}</div>
+} @empty {
+  <div>No items found</div>
+}
+
+// ❌ Bad
+<div *ngIf="condition">Content</div>
+<div *ngFor="let item of items">{{ item.name }}</div>
+```
+
+## Styling Guidelines
+
+- Use Tailwind CSS utility classes as the primary styling method
+- Follow DaisyUI component patterns for consistent UI
+- Custom styles should be in component-specific inlined styles
+- Use CSS custom properties for theme values
+- Follow mobile-first responsive design
+
+## Tailwind Best Practices
+
+- Use @apply sparingly and only for repeated patterns
+- Create custom utility classes in tailwind.css
+- Use arbitrary values when needed: w-[32px]
+- Leverage DaisyUI components for common UI patterns
+- Use container queries for component-specific responsive design
+
+## State Management
+
+- Use signals for local component state
+- Implement services for shared state
+- Use RxJS operators efficiently
+- Avoid unnecessary subscriptions
+- Clean up subscriptions using destroyRef and takeUntilDestroyed
+
+## Performance Guidelines
+
+- Use OnPush change detection strategy
+- Implement trackBy functions for @for loops
+- Use deferrable views for below-the-fold content
+- Lazy load routes and components
+- Optimize images and assets
+
+## Testing
+
+- Write unit tests for all services and components
+- Use Angular Testing Library for component tests
+- Implement e2e tests with Cypress
+- Test accessibility (a11y) requirements
+- Maintain minimum 80% code coverage
+
+## Code Style
+
+- Use TypeScript strict mode
+- Follow Angular style guide
+- Use ESLint and Prettier
+- Maximum line length: 100 characters
+- Use meaningful variable and function names
+
+## Accessibility
+
+- Use semantic HTML elements
+- Implement ARIA attributes when necessary
+- Ensure proper color contrast
+- Support keyboard navigation
+- Test with screen readers
+
+## Security
+
+- Sanitize user input
+- Use Angular's built-in XSS protection
+- Implement proper authentication
+- Use HTTP-only cookies
+- Follow OWASP security guidelines
+
+## Documentation
+
+- Document complex business logic
+- Use JSDoc for public APIs
+- Keep README.md up to date
+- Document component usage
+- Include setup instructions
+
+## Git Workflow
+
+- Use conventional commits
+- Create feature branches
+- Require pull request reviews
+- Keep commits atomic
+- Write meaningful commit messages
+
+## Build and Deployment
+
+- Use Angular CLI for builds
+- Implement proper environment configurations
+- Optimize bundle size
+- Use proper caching strategies
+- Implement CI/CD pipelines
+
+## Error Handling
+
+- Use proper error boundaries
+- Implement global error handling
+- Log errors appropriately
+- Show user-friendly error messages
+- Handle network errors gracefully
+
+## Dependencies
+
+- Keep Angular and dependencies up to date
+- Use exact versions in package.json
+- Audit dependencies regularly
+- Document third-party integrations
+- Minimize external dependencies
+
+## Monitoring and Logging
+
+- Implement proper logging strategy
+- Use Angular's built-in logging
+- Monitor performance metrics
+- Track user interactions
+- Implement error tracking
+
+Remember to:
+
+1. Keep components small and focused
+2. Use the latest Angular features
+3. Follow Tailwind and DaisyUI best practices
+4. Write clean, maintainable code
+5. Test thoroughly
+6. Document your work
+7. Consider performance and accessibility
